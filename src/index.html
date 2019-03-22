@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Check Point Red Social</title>
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script>
+ <script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDyLgS065H1XTNDOP-7WV4sKqXSnOsXewE",
+    authDomain: "redsocialusuarios.firebaseapp.com",
+    databaseURL: "https://redsocialusuarios.firebaseio.com",
+    projectId: "redsocialusuarios",
+    storageBucket: "redsocialusuarios.appspot.com",
+    messagingSenderId: "63565909344"
+  };
+  firebase.initializeApp(config);
+ </script>
+ <script src="main.js"></script>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Check Point Red Social Gamer</h1>
+
+    <form>
+      <h4>Registrate</h4>
+      <label for="name">Nombre:</label>
+      <input id="name" type="text" placeholder="Ingresa tu nombre"><br/>
+      <label for="nickname">¿Con que nombre quieres que te vean los demas usuarios?</label>
+      <input id="nickname" type="text" placeholder="Ingresa tu nickname"><br/>
+      <label for="email">¿Cuál es tu correo electrónico?</label>
+      <input id="email" type="email" placeholder="Ingresa tu e-mail/correo"><br/>
+      <label for="password">Ingresa una contraseña</label>
+      <input id="password" type="password" placeholder="Ingresa contraseña"><br/>
+      <button type="reset" id="send">Enviar</button>
+    </form>
+
+    
+    <form>
+      <h4>Ingresa con tu cuenta existente</h4>
+      <input id="emailLog" type="email" placeholder="Ingresa tu e-mail/correo">
+      <input id="passwordLog" type="password" placeholder="Ingresa contraseña">
+      <button type="reset" id="logIn">Entrar</button>
+    </form>
+    
+
+    <div id="content" style="display:none">
+        <h2>Bienvenido</h2>
+        <button id="close1">Cerrar sesión</button>
+    </div>
+
+
+ 
+    
+</body>
+</html>
