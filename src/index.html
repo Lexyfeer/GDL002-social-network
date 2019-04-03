@@ -6,23 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Check Point Red Social</title>
-
-  <!-- Estilo de boostrap -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-  <!-- <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script> -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-
-  <!-- Libreria firebase -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
-
-  <!-- Configuracion de firebase -->
-  <script src="firebase.js"></script>
-
-  <script src="main.js"></script>
-  <!-- <script src="main1.js"></script> -->
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -48,11 +31,11 @@
         </div> -->
         
       </form>
-      <form>
+      <form id="logInForm">
         <h4>Ingresa con tu cuenta existente</h4>
         <input id="emailLog" type="email" placeholder="Ingresa e-mail/correo">
         <input id="passwordLog" type="password" placeholder="Ingresa contraseña">
-        <button type="reset" id="logIn">Entrar</button>
+        <button id="logIn">Entrar</button>
       </form>
     </nav>
 
@@ -60,9 +43,35 @@
     <div id="content" style="display:none">
       <h2>Bienvenido</h2>
       <button id="close1">Cerrar sesión</button>
+      <div class='postsContainer'>
+        <form id="addPost">
+          <input type="text" name="post" placeholder="¿Qué quieres compartir?">
+          <button>Publicar</button>
+        </form>
+        <ul id="postList"></ul>
+      </div> 
     </div>
+   
   </main>
 
+
+    <!-- Estilo de boostrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script> -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+  <!-- Libreria firebase -->
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+
+  <!-- Configuracion de firebase -->
+  <script src="firebase.js"></script>
+  
+  <script src="main.js"></script>
+  <script src="posts.js"></script>
+  <!-- <script src="main1.js"></script> -->
+  <link rel="stylesheet" href="style.css">
 </body>
 
 </html>

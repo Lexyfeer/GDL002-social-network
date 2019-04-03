@@ -9,7 +9,7 @@ firebase.auth().onAuthStateChanged(user => {
     // User is signed in.
     // var displayName = user.displayName;
     // var email = user.email;
-    // console.log(user);
+    //console.log(user);
     // var emailVerified = user.emailVerified;
     // var photoURL = user.photoURL;
     // var isAnonymous = user.isAnonymous;
@@ -51,72 +51,79 @@ window.addEventListener("load", () => {
       }).then(function () {
         verify(); //manda correo de verificacion.
         console.log('usuario agregado correctamente');
-      }).catch(function (error1) {
-        console.log(error1);
-      });
-    }).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode);
-      console.log(errorMessage);
-
-      // if (errorCode === 'auth/email-already-in-use') {
-      //   let textError = getElementById('errores').style.display = block;
-      //   textError.innerHTML = 'El correo esta en uso por otra cuenta';
-      // } else if (errorCode === 'auth/weak-password') { 
-      //   let textError = getElementById('errores').style.display = block;
-      //   textError.innerHTML = 'La contraseña debe tener minimo 6 caracteres';
-      // };
-
-    });
-  });
-
-  document.getElementById('logIn').addEventListener('click', () => {
-    console.log('diste un click');
-    let correoLog = document.getElementById('emailLog').value;
-    let passwordLog = document.getElementById('passwordLog').value;
-
-    firebase.auth().signInWithEmailAndPassword(correoLog, passwordLog)
-      .catch(function (error) {
+      }).then(post => {
+        db.collection('users').doc(cred.uid).collection("posts").add({
+          post: "Hola, esta es una publicación de prueba.",
+          likes: 0
+        })
+          .catch(function (error1) {
+            console.log(error1);
+          });
+      }).catch(function (error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+
+        // if (errorCode === 'auth/email-already-in-use') {
+        //   let textError = getElementById('errores').style.display = block;
+        //   textError.innerHTML = 'El correo esta en uso por otra cuenta';
+        // } else if (errorCode === 'auth/weak-password') { 
+        //   let textError = getElementById('errores').style.display = block;
+        //   textError.innerHTML = 'La contraseña debe tener minimo 6 caracteres';
+        // };
+
       });
-  });
+    });
+
+    document.getElementById('logIn').addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('diste un click');
+      let correoLog = document.getElementById('emailLog').value;
+      let passwordLog = document.getElementById('passwordLog').value;
+
+      firebase.auth().signInWithEmailAndPassword(correoLog, passwordLog)
+        .catch(function (error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode);
+          console.log(errorMessage);
+        });
+    });
 
 
-  document.getElementById("close1").addEventListener('click', () => {
-    firebase.auth().signOut()
-      .then(function () {
-        // Sign-out successful.
-        console.log('Saliendo...')
-        document.getElementById('content').style.display = 'none';
-      })
-      .catch(function (error) {
-        // An error happened.
-      });
-  });
+    document.getElementById("close1").addEventListener('click', () => {
+      firebase.auth().signOut()
+        .then(function () {
+          // Sign-out successful.
+          console.log('Saliendo...')
+          document.getElementById('content').style.display = 'none';
+        })
+        .catch(function (error) {
+          // An error happened.
+        });
+    });
 
-  function verify() {
-    var user = firebase.auth().currentUser;
+    function verify() {
+      var user = firebase.auth().currentUser;
 
-    user.sendEmailVerification()
-      .then(function () {
-        // Email sent.
-        console.log('Enviando correo...');
-        alert('email enviado');
-        firebase.auth().signOut();
-        document.getElementById('formRegister').reset();
-      })
-      .catch(function (error) {
-        // An error happened.
-      });
-  };
+      user.sendEmailVerification()
+        .then(function () {
+          // Email sent.
+          console.log('Enviando correo...');
+          alert('email enviado');
+          firebase.auth().signOut();
+          document.getElementById('formRegister').reset();
+        })
+        .catch(function (error) {
+          // An error happened.
+        });
+    };
 
-});//Fin del load del window
+  });//Fin del load del window
+
 
   //  guardando informacion del usuario al momento de darle click al boton registrar
   // function saveUserData() {
@@ -147,17 +154,19 @@ window.addEventListener("load", () => {
 
 
 
-// const posts = document.querySelector('posts');
-// //setup posts
-// const setupPosts = (data) => {
-//     let html = '';
-//     data.forEach(doc => {
-//         const post = doc.data();
-//         const li = `
-//         <li>
-//             <div class = 'collabsible post'>${post.content}</div>
-//         </li>
-//         `;
-//         html += li
-//     })
-// }
+  // const posts = document.querySelector('posts');
+  // //setup posts
+  // const setupPosts = (data) => {
+  //     let html = '';
+  //     data.forEach(doc => {
+  //         const post = doc.data();
+  //         const li = `
+  //         <li>
+  //             <div class = 'collabsible post'>${post.content}</div>
+  //         </li>
+  //         `;
+  //         html += li
+  //     })
+  // }
+  //
+})
