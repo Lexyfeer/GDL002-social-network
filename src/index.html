@@ -5,190 +5,133 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Check Point Red Social</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="style.css">
+  <title>Check-Point!</title>
 </head>
 
 <body>
-  <main>
-    <h1>Check Point Red Social Gamer</h1>
-    <nav>
-      <form id="formRegister">
-        <h4>Registrate</h4>
-        <label for="name">Nombre:</label>
-        <input id="name" required type="text" placeholder="Ingresa tu nombre"><br />
-        <label for="nickname">¿Con que nombre quieres que te vean los demas usuarios?</label>
-        <input id="nickname" required type="text" placeholder="Ingresa tu nickname"><br />
-        <label for="date">¿Cuál es tu año de naciemiento?:</label>
-        <input id="date" required type="text" placeholder="Año de naciemiento"><br />
-        <label for="email">¿Cuál es tu correo electrónico?</label>
-        <input id="email" required type="email" placeholder="Ingresa e-mail/correo"><br />
-        <label for="password">Ingresa una contraseña</label>
-        <input id="password" required type="password" placeholder="Ingresa contraseña"><br />
-        <button id="send">Registrar</button>
+  <img class="logo" alt="Checkpoint_logo.png"
+    src="https://drive.google.com/uc?export=view&id=1qZHg6D3qFRG7D16LuBLyIx2uvb6sHvgY">
 
-        <!-- <div id="errores" style="display:none;">
-          <p></p>
-        </div> -->
-        
+  <!-- Login modal -->
+  <section id="modal-login" class="modal">
+    <div class="modal-content">
+      <h2>Log In</h2>
+      <form id="login-form">
+        <div class="input-field">
+          <label for="login-email">E-mail</label>
+          <input type="email" id="login-email" required>
+        </div>
+        <div class="login-field">
+          <label for="login-password">Contraseña</label>
+          <input type="password" id="login-password" required>
+        </div>
+        <input class="blackBtn enterBtn" type="submit" value="Inciar sesión">
+        <p>¿Aún no tienes cuenta?</p>
+        <a href="#modal-sign-up" id="linkRegister">Regístrate</a>
       </form>
-      <form id="logInForm">
-        <h4>Ingresa con tu cuenta existente</h4>
-        <input id="emailLog" type="email" placeholder="Ingresa e-mail/correo">
-        <input id="passwordLog" type="password" placeholder="Ingresa contraseña">
-        <button id="logIn">Entrar</button>
-      </form>
-    </nav>
-
-
-    <div id="content" style="display:none">
-      <h2>Bienvenido</h2>
-      <button id="close1">Cerrar sesión</button>
-      <div class='postsContainer'>
-        <form id="addPost">
-          <input type="text" name="post" placeholder="¿Qué quieres compartir?">
-          <button>Publicar</button>
-        </form>
-        <ul id="postList"></ul>
-      </div> 
     </div>
-   
-  </main>
+  </section>
 
+  <!-- Navigation bar -->
+  <section id="modal-navbar" class="topnav page">
+    <div>
+      <a href="#newsfeed" id="linkNewsFeed">Muro</a>
+      <a href="#modal-profile" id="linkProfile">Perfil</a>
+      <a href="#modal-account" id="linkAccount">Cuenta</a>
+      <a href="#" id="logout">Cerrar sesión</a>
+    </div>
+  </section>
 
-    <!-- Estilo de boostrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Profile -->
+  <section id="modal-profile" class="page">
+    <div>
+      <h2>¡Hola!</h2>
+      <span id="profile-nickname"></span>
+    </div>
+    <figure id="profile-pic"></figure>
+  </section>
 
-  <!-- <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase.js"></script> -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
-  <!-- Libreria firebase -->
-  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+  <!-- Newsfeed -->
+  <section id="modal-wallpost" class="page">
+    <form id='addPost'>
+      <textarea rows="4" cols="50" name="post" placeholder="¿Qué quieres compartir?">
+      </textarea>
+      <button>Publicar</button>
+    </form>
+    <ul id="postsList"></ul>
+  </section>
 
-  <!-- Configuracion de firebase -->
+  <!-- Modal account -->
+  <section id="modal-account" class="modal page">
+    <div class="modal-content">
+      <h2>Actualizar cuenta</h2>
+      <form id="account-details">
+        <div class="input-field">
+          <label for="update-name">Name: </label>
+          <input type="text" id="update-name">
+        </div>
+        <div class="input-field">
+          <label for="update-nickname">Nickname: </label>
+          <input type="text" id="update-nickname">
+        </div>
+        <div>
+          <label for="update-pic">Foto de perfil:</label>
+        </div>
+        <input type="submit" value="Guardar">
+      </form>
+    </div>
+  </section>
+
+  <!-- Sign up modal -->
+  <section id="modal-sign-up" class="modal page">
+    <div class="modal-content">
+      <h2>Sign up</h2>
+      <form id="signup-form" autocomplete="off">
+        <div class="input-field">
+          <label for="signup-name">Nombre</label>
+          <input type="text" id="signup-name">
+          <label for="signup-nickname">Nickname</label>
+          <input type="text" id="signup-nickname" required>
+          <label for="signup-bd">Año de nacimiento</label>
+          <input type="date" id="signup-bd" required>
+        </div>
+        <div class="input-field">
+          <label for="signup-email">E-mail</label>
+          <input type="email" id="signup-email" required>
+          <label for="verified-email">Verificar e-mail</label>
+          <input type="email" id="verified-email" required>
+        </div>
+        <div class="input-field">
+          <label for="signup-password">Contraseña</label>
+          <input type="password" id="signup-password" required>
+          <label for="verified-password">Verificar contraseña</label>
+          <input type="password" id="verified-password" required>
+        </div>
+        <input class="blackBtn enterBtn" type="submit" value="Registrar">
+      </form>
+      <p>Ya tengo una cuenta</p>
+      <a href="#modal-login" id="linkLogin">Inicar Sesion</a>
+    </div>
+  </section>
+
+  <!-- Botones para like 
+    <button class="like likeBtn" id="loveItBtn"><img class="imgBtn" alt="loveItBtn"
+        src="https://drive.google.com/uc?export=view&id=1URPQIxmr9NDjhTLkBDPNcEidLJ1eYzeQ"></button>
+    <button class="like likeBtn" id="lvlUpBtn"><img class="imgBtn" alt="lvlUpBtn"
+        src="https://drive.google.com/uc?export=view&id=1TjbIbQmgxoy15DSwcvq-NKL-Jh4zw_aR"></button>
+    <button class="like likeBtn" id="gameOverBtn"><img class="imgBtn" alt="gameOverBtn"
+        src="https://drive.google.com/uc?export=view&id=13S3-ICqv2NZk_0xgqbYYXDskUCjAPday"></button>
+    -->
+
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-firestore.js"></script>
   <script src="firebase.js"></script>
-  
-  <script src="main.js"></script>
+  <script src="auth.js"></script>
+  <script src="spa.js"></script>
   <script src="posts.js"></script>
-  <!-- <script src="main1.js"></script> -->
-  <link rel="stylesheet" href="style.css">
+
 </body>
 
 </html>
-
-
-<!-- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Check-Point!</title>
-</head> -->
-<!-- Navigation bar -->
-
-<!-- <body>
-  <nav>
-    <div class="nav-wrapper-container">
-      <ul id="nav-mobile">
-        <li class="logged-in">
-          <a href="#" data-target="modal-account">Cuenta</a>
-        </li>
-        <li class="logged-in">
-          <a href="#" id="logout">Cerrar sesión</a>
-        </li>
-        <li class="logged-in">
-          <a href="#" data-target="newsfeed">Inicio</a>
-        </li>
-        <li class="logged-out">
-          <a href="#" data-target="modal-login">Iniciar sesión</a>
-        </li>
-        <li class="logged-out">
-          <a href="#" data-target="modal-sign-up">Registro</a>
-        </li>
-      </ul>
-    </div> -->
-
-<!-- Sign up modal -->
-<!-- <div id="modal-sign-up" class="modal">
-      <div class="modal-content">
-        <h2>Sign up</h2>
-        <form id="signup-form">
-          <div class="input-field">
-            <input type="email" id="signup-email" required>
-            <label for="signup-email">E-mail</label>
-          </div>
-          <div class="input-field">
-            <input type="password" id="signup-password" required>
-            <label for="signup-password">Contraseña</label>
-          </div>
-          <input type="submit" value="Registrar">
-        </form>
-      </div>
-    </div> -->
-
-<!-- Login modal -->
-<!-- <div id="modal-login" class="modal">
-      <div class="modal-content">
-        <h2>Log In</h2>
-        <form id="login-form">
-          <div class="input-field">
-            <input type="email" id="login-email" required>
-            <label for="signup-email">E-mail</label>
-          </div>
-          <div class="login-field">
-            <input type="password" id="login-password" required>
-            <label for="login-password">Contraseña</label>
-          </div>
-          <input type="submit" value="Inciar sesión">
-        </form>
-      </div>
-    </div> -->
-
-<!-- Modal account -->
-<!-- <div id="modal-account" class="modal">
-      <div class="modal-content">
-        <h2>Detalles de la cuenta</h2>
-        <div class="account-details"></div>
-      </div>
-    </div> -->
-
-<!-- Newsfeed -->
-<!-- <div class="container">
-      <ul class="posts">
-
-      </ul>
-    </div> -->
-<!-- <div id="modal-newsfeed" class="modal">
-      <div class="modal-content">
-        <form id="create-post">
-          <div class="input-field">
-            <label for="post">:</label>
-            <input type="text" id="post" required>
-            <input type="button" value="Publicar">
-          </div>
-        </form>
-      </div>
-    </div> -->
-
-
-<!-- <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.0/firebase-firestore.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAA0MVHLupaDUBwvctequpz-8aDt9JNpb4",
-        authDomain: "checkpoint-2ea0e.firebaseapp.com",
-        databaseURL: "https://checkpoint-2ea0e.firebaseio.com",
-        projectId: "checkpoint-2ea0e",
-        storageBucket: "checkpoint-2ea0e.appspot.com",
-        messagingSenderId: "32985801835"
-      };
-      firebase.initializeApp(config);
-      const auth = firebase.auth();
-      const db = firebase.firestore();
-    </script>
-    <script src="main.js"></script>
-    <script src="auth.js"></script>
-</body>
-
-</html> -->

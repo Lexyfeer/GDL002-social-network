@@ -1,172 +1,89 @@
-'use strict'
-//Despues de que termino de cargar el html entonces entro al load del window.
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    if (user.emailVerified) {
-      document.getElementById('content').style.display = 'block';
-    }
-    // show(user);
-    // User is signed in.
-    // var displayName = user.displayName;
-    // var email = user.email;
-    //console.log(user);
-    // var emailVerified = user.emailVerified;
-    // var photoURL = user.photoURL;
-    // var isAnonymous = user.isAnonymous;
-    // var uid = user.uid;
-    // var providerData = user.providerData;
-    // ...
-    console.log('Existe usuario activo');
-  } else {
-    // User is signed out.
-    console.log('No existe usuario activo');
-    // ... 
-  }
-});
+// 'use strict'
 
-window.addEventListener("load", () => {
+// const postList = document.querySelector('#posts-list');
+// const form = document.querySelector('#add-post');
 
-  // function show(user){
-  //   let user = (user);
-  //   if(user.emailVerified) {
-  //     document.getElementById('content').style.display ='block';
-  //   }; 
-  // };
+// //create element and render them
+// const renderPost = (doc) => {
+//     let li = document.createElement('li');
+//     let post = document.createElement('span');
+//     let deletePost = document.createElement('button');
+//     let updatePost = document.createElement('button');
 
-  // Registra usuarios en base firebase por correo y contraseña.
-  document.getElementById('send').addEventListener('click', (e) => {
-    e.preventDefault();
-    // saveUserData(); //Guarda los demas datos del usuario en otra base por separado.
+//     li.setAttribute('data-id', doc.id);
+//     post.textContent = doc.data().post;
+//     deletePost.textContent = 'Eliminar';
+//     updatePost.textContent = 'Editar';
 
-    let correo = document.getElementById('email').value;
-    let contraseña = document.getElementById('password').value;
+//     li.appendChild(post);
+//     li.appendChild(updatePost);
+//     li.appendChild(deletePost);
+//     postList.appendChild(li);
 
+//     //deleting post
+//     deletePost.addEventListener('click', (e) => {
+//         e.stopPropagation();
+//         let id = e.target.parentElement.getAttribute('data-id');
+//         db.collection('posts').doc(id).delete();
+//     })
 
-    firebase.auth().createUserWithEmailAndPassword(correo, contraseña).then(cred => {
-      let db = firebase.firestore();
-      db.collection('users').doc(cred.uid).set({
-        name: document.getElementById('name').value,
-        nick: document.getElementById('nickname').value,
-        date: document.getElementById('date').value
-      }).then(function () {
-        verify(); //manda correo de verificacion.
-        console.log('usuario agregado correctamente');
-      }).then(post => {
-        db.collection('users').doc(cred.uid).collection("posts").add({
-          post: "Hola, esta es una publicación de prueba.",
-          likes: 0
-        })
-          .catch(function (error1) {
-            console.log(error1);
-          });
-      }).catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        console.log(errorCode);
-        console.log(errorMessage);
+//     updatePost.addEventListener('click', (e) => {
+//         const oldElement = post;
+//         const oldText = oldElement.textContent;
+//         const newElement = document.createElement('input');
+//         newElement.type = 'text';
+//         li.appendChild(newElement);
 
-        // if (errorCode === 'auth/email-already-in-use') {
-        //   let textError = getElementById('errores').style.display = block;
-        //   textError.innerHTML = 'El correo esta en uso por otra cuenta';
-        // } else if (errorCode === 'auth/weak-password') { 
-        //   let textError = getElementById('errores').style.display = block;
-        //   textError.innerHTML = 'La contraseña debe tener minimo 6 caracteres';
-        // };
+//         oldElement.replaceWith(newElement);
+//         newElement.value = oldText;
+//         const updateButton = document.createElement('button');
+//         updateButton.textContent = 'Actualizar';
+//         li.appendChild(updateButton);
 
-      });
-    });
+//         updateButton.addEventListener('click', (e) => {
+//             post.textContent = newElement.value;
+//             newElement.replaceWith(oldElement);
+//             let id = e.target.parentElement.getAttribute('data-id');
+//             console.log('id', id);
+//             e.stopPropagation();
+//             e.preventDefault();
+//             db.collection('posts').doc(id).update({
+//                 post: newElement.value
+//             });
+//             li.removeChild(updateButton);
+//         })
 
-    document.getElementById('logIn').addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('diste un click');
-      let correoLog = document.getElementById('emailLog').value;
-      let passwordLog = document.getElementById('passwordLog').value;
+//     })
+// }
 
-      firebase.auth().signInWithEmailAndPassword(correoLog, passwordLog)
-        .catch(function (error) {
-          // Handle Errors here.
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log(errorCode);
-          console.log(errorMessage);
-        });
-    });
+// //getting posts
+// // db.collection('posts').get().then((snapshot) => {
+// //     snapshot.docs.forEach(doc => {
+// //         renderPost(doc);
+// //         // console.log(doc.data());
+// //     })
+// // })
+
+// //saving posts
+// form.addEventListener('submit', (e) => {
+//     e.preventDefault();
+//     db.collection('posts').add({
+//         post: form.post.value
+//     })
+//     form.post.value = '';
+// })
 
 
-    document.getElementById("close1").addEventListener('click', () => {
-      firebase.auth().signOut()
-        .then(function () {
-          // Sign-out successful.
-          console.log('Saliendo...')
-          document.getElementById('content').style.display = 'none';
-        })
-        .catch(function (error) {
-          // An error happened.
-        });
-    });
+// //real-time listener
+// db.collection('posts').onSnapshot(snapshot => {
+//     let changes = snapshot.docChanges();
+//     changes.forEach(change => {
+//         if (change.type === 'added') {
+//             renderPost(change.doc)
+//         } else if (change.type === 'removed') {
+//             let li = postList.querySelector('[data-id=' + change.doc.id + ']');
+//             postList.removeChild(li);
+//         }
+//     })
+// })
 
-    function verify() {
-      var user = firebase.auth().currentUser;
-
-      user.sendEmailVerification()
-        .then(function () {
-          // Email sent.
-          console.log('Enviando correo...');
-          alert('email enviado');
-          firebase.auth().signOut();
-          document.getElementById('formRegister').reset();
-        })
-        .catch(function (error) {
-          // An error happened.
-        });
-    };
-
-  });//Fin del load del window
-
-
-  //  guardando informacion del usuario al momento de darle click al boton registrar
-  // function saveUserData() {
-  //   let correo = document.getElementById('email').value;
-  //   let name = document.getElementById('name').value;
-  //   let nick = document.getElementById('nickname').value;
-  //   let date = document.getElementById('date').value;
-  //   let yearAct = 2019;
-  //   let age = (yearAct - date);
-
-  // Initialize Cloud Firestore through Firebase
-  //   var db = firebase.firestore();
-  //   db.collection("users").add({
-  //     email: correo,
-  //     name: name,
-  //     nickname: nick,
-  //     birthdate: date,
-  //     age: age
-  //   })
-  //     .then(function (docRef) {
-  //       console.log("Document written with ID: ", docRef.id);
-  //     })
-  //     .catch(function (error) {
-  //       console.error("Error adding document: ", error);
-  //     });
-  // };
-
-
-
-
-  // const posts = document.querySelector('posts');
-  // //setup posts
-  // const setupPosts = (data) => {
-  //     let html = '';
-  //     data.forEach(doc => {
-  //         const post = doc.data();
-  //         const li = `
-  //         <li>
-  //             <div class = 'collabsible post'>${post.content}</div>
-  //         </li>
-  //         `;
-  //         html += li
-  //     })
-  // }
-  //
-})

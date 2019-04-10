@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 20px; /* 1rem will equal this now */
+  line-height: 1.6;
+  font-family: sans-serif; /* add google fonts */
+}
+
+body {
+  background: url("https://drive.google.com/uc?export=view&id=13MdevlT6snYhCvoHxRcWdBnw_ebfijg4") center fixed repeat; /*log in background*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  margin-left: 2rem;
+}
+
+/* General atributes for each page class */
+.page {
+  display: none;
+  width: 100%;
+  position: fixed; /*Or absolute ifthe user needs to scrollfor more content*/
+  padding: 1rem 2rem;
+  margin-top: 10rem;
+}
+
+.active {
+  display: block;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+  position:fixed;
+  top:-3.5rem;
+  left:0;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 1rem;
+  text-decoration: none;
+  font-size: .9rem;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.newsfeed {
+  background: url("https://drive.google.com/uc?export=view&id=1xxxukjZMWNKJsZj2rAAjBjGuIOwVReWG") center fixed repeat; /*newsfeed background*/
+}
+
+/* .modal {
+  margin-left: 2rem;
+} */
+
+a {
+  text-decoration: none; /*Eliminates de link underline*/
+  color: #000;
+}
+
+.blackBtn {
+  background-color: #000;
+  border: none;
+  border-radius: 0.3rem;
+  color: #fff;
+  padding: 0.5rem;
+  margin: 0.3rem;
+}
+
+.logo {
+  margin: 1rem;
+  height: 5rem;
+  width: 8rem;
+  margin-bottom: 5rem;
+}
+
+a img:last-child {
+  display: none;
+}
+a:hover img:last-child {
+  display: block;
+}
+a:hover img:first-child {
+  display: none;
+}

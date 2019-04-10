@@ -1,3 +1,128 @@
+# CHECK-POINT, la gamernet para mujeres
+
+### Definición del producto
+
+Tomando el feminismo y nuestra influencia tencnológica como punto de partida, consideramos un sector que sigue siendo discriminado, las mujeres en los videojuegos. Según estudios publicados por *THE GUARDIAN* en 2014, 52% de la población gamer eran mujeres (y es una cifra que sigue aumentando). Aún así generalmente quienes juegan en línea suelen ser hombres y nos preguntamos ¿por qué? La respuesta es la misma que encontramos en la mayoría, si es que en todos, los casos de exclusión femenina, las mujeres no son bienvenidas en el mundo gamer. Y no es nada nuevo, los ataques nacieron con los videojuegos y han crecido junto a la accesibilidad del internet y sus comunidades de juego, pero comenzaron a visibilizarse apenas hace unos años. Estos son más comunes en los juegos y comunidades en línea, los cuales van desde insultos sexistas, hasta la exclusión total o el acoso.
+
+Ya que no buscamos segregar, la red aceptará usuarios de cualquier sexo, a partir de 13 años (el estándar), pero estará dirigida a mujeres gamer. Implementando herramientas que busquen mejorar la convivencia de nuestros usuarios, como resaltar sus habilidades de juego, logros e intereses comunes y dejando en último plano información como el sexo o nacionalidad, lograremos minimizar las agresiones y ofrecer una mejor experiencia.
+
+Para tener más claro el problema, hicimos una investigación recopilando experiencias, algunas directas y otras a través de dos encuestas. La *encuesta #1* recopiló sólo información sobre mujeres gamer y la *encuesta #2*, información sobre gamers de cualquier sexo.
+
+Esto nos permitió recopilar datos de gran relevancia y definir con mayor claridad nuestro usuario al entender mejor sus necesidades.
+
+**Datos arrojados por la encuesta #1:**
+
+- La mayoría de las mujeres que juegan, empezó muy joven (antes de los 12 años) y aún está por debajo de los 40.
+- Los ataques más comunes son la descalificación verbal por ser mujer y acoso sexual.
+- Casi 50% de las encuestadas evita jugar en línea, principalmente por disponibilidad de tiempo y por evitar las malas experiencias.
+
+**Datos arrojados por la encuesta #2:**
+
+- La mayor parte de los jugadores online, son hombres (76%).
+- Proporcionalmente, la mayoría de los encuestados no ve un beneficio en poder ocultar o mantener privada parte de tu información (como el sexo o el país de origen).
+- Los usuarios gamer necesitan una sección de recomendaciones (juegos, eventos, contactos, etc.) que se ajuste a sus intereses.
+
+**Usuario**
+
+Mujeres gamer que busquen mejorar su experiencia de juego en línea, multiplayer y comunidades. Por ejemplo, sentirse más seguras y aceptadas.
+
+
+### Historias de usuario
+
+1.- El usuario necesita una pantalla donde pueda registrarse o iniciar sesión
+para ingresar sus datos y validar la cuenta.
+
+  *D.O.D*
+  -El usuario puede crear una cuenta con un e-mail válido
+  -El usuario puede ingresar una contraseña y esta se muestra con caracteres ocultos
+  -No permite crear usuarios repetidos
+  -Se muestra un mensaje de error cuando el usuario información inválida
+  -El usuario puede registrar un nickname
+  -El usuario puede ingresar a su cuenta (muro de publicaciones e información de perfil)
+
+2.- El usuario necesita un muro o lista de publicaciones para interactuar con
+sus contactos y grupos de interés.
+
+  *D.O.D*
+  -El usuario puede crear una publicación, editarla y eliminarla
+  -El usuario puede definir si su publicación es pública o privada
+  -El usuario puede reaccionar a las publicaciones
+  -El usuario puede ver el contador de reacciones
+  -El usuario puede ver publicaciones recientes y pasadas
+  -El usuario puede comentar las publicaciones
+  -El usuario puede compartir las publicaciones
+
+3.- El usuario necesita tener un perfil con su información divida en dos
+secciones. La gamer-pública y la personal-privada para moderar la interacción
+con los otros usuarios.
+
+  *D.O.D*
+  -El usuario puede crear una cuenta con un e-mail válido
+  -El usuario puede ingresar una contraseña y esta se muestra con caracteres ocultos
+  -No permite crear usuarios repetidos
+  -Se muestra un mensaje de error cuando el usuario información inválida
+  -El usuario puede registrar un nickname
+  -El usuario puede ingresar a su cuenta (muro de publicaciones e información de perfil)
+
+### Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+
+Debes definir cuál será el flujo que seguirá el usuario dentro de tu producto y
+con eso deberás diseñar la Interfaz de Usuario (UI por sus siglas en inglés) de
+esta red social que siga este flujo.
+Este diseño debe representar la solución que se implementará finalmente en
+código.
+
+Pantalla1
+
+![boceto_mobile_Pantalla01](https://drive.google.com/uc?export=view&id=1uCNplxCt1tXPhW9WbCUIW3XQKLar6Xy-)
+
+Pantalla2
+
+![boceto_mobile_Pantalla02](https://drive.google.com/uc?export=view&id=1JrfZu_LRtFSqdY-kICK3Z-8ESMcFs28-)
+
+Pantalla3
+
+![boceto_mobile_Pantalla03](https://drive.google.com/uc?export=view&id=1kWYP4xnJaPA3k4k5J_V5HjoPnbgtdngT)
+
+Pantalla4
+
+![boceto_mobile_Pantalla04](https://drive.google.com/uc?export=view&id=1s1pvUZpByFbPqaacyc6z1RByGmiAIBB4)
+
+Pantalla4.1
+
+![boceto_mobile_Pantalla04-1](https://drive.google.com/uc?export=view&id=1eBgie-m9b-xuBBfS0pLWh1wzzRLQX_Mp)
+
+Pantalla5
+
+![boceto_mobile_Pantalla05](https://drive.google.com/uc?export=view&id=1G3Y1MQYK5qw3WFsv2YXXn--vzW4786ct)
+
+### Prototipo de alta fidelidad
+
+Log-in
+
+![mobile_Pantalla01](https://drive.google.com/uc?export=view&id=1grOu79Sf_VQt237Cl1GIeZFnYog2H3qX)
+
+Registro
+
+![mobile_Pantalla02](https://drive.google.com/uc?export=view&id=1NfMIWbFwTdWKdQMM2iw6wZEeDUlLi2Ym)
+
+Muro
+
+![mobile_Pantalla03](https://drive.google.com/uc?export=view&id=1vAzSm3rGWSY84STsWpoGMDkcTqjQrj2A)
+
+Perfil público
+
+![mobile_Pantalla04](https://drive.google.com/uc?export=view&id=1HlGdxfLjOhl3U2_KwhzUTiYJth_Lx4-t)
+
+Perfil privado
+
+![mobile_Pantalla04.1](https://drive.google.com/uc?export=view&id=1sfMwHXsl4m_L3JHTlOmP72kmwZfH6-8b)
+
+Recomendaciones y novedades
+
+![mobile_Pantalla05](https://drive.google.com/uc?export=view&id=1-MsogdQjNl8eyRldwAD5MR2RgGG1X6Ao)
+
+
 # Creando una Red Social
 
 ## Preámbulo

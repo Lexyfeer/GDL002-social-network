@@ -1,0 +1,33 @@
+{
+  "name": "checkpoint",
+  "version": "1.0.0",
+  "description": "Check-Point, la gamernet para mujeres.",
+  "main": "src/index.html",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "htmlhint": "htmlhint src/*.html test/*.html",
+    "eslint": "eslint --ext .js src/ test/",
+    "pretest": "npm run eslint && npm run htmlhint",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MelSkywalker/GDL002-social-network.git"
+  },
+  "keywords": [],
+  "author": "Karen Garzón, Melisa Quesada y Nancy Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MelSkywalker/GDL002-social-network.git"
+  },
+  "homepage": "https://github.com/MelSkywalker/GDL002-social-network.git#readme",
+  "dependencies": {
+    "eslint": "^5.15.3",
+    "eslint-plugin-jest": "^22.4.1",
+    "firebase": "^5.9.1",
+    "htmlhint": "^0.11.0",
+    "jest": "^24.5.0"
+  }
+}
